@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row details-row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="toggleDetails(); logDetailsToggleEvent($event, shouldRenderDetails)">
+        <span>{{ shouldRenderDetails ? 'Hide' : 'Display' }} Details</span>
+      </button>
+      <p *ngIf="shouldRenderDetails">A paragraph with some details.</p>
+    </div>
+  </div>
+  <h3>Event log:</h3>
+  <div class="row log-row">
+    <div class="col-xs-12">
+      <p class="log-item"
+        [ngClass]="{ 'text--white' : $i >= 4 }"
+        [ngStyle]="{ 'background-color': $i >= 4 ? 'blue' : 'initial' }"
+        *ngFor="let event of detailsToggleEvents; index as $i">
+        <span>[{{event.timestamp}}]&emsp;</span>
+        <span>Details {{ event.shouldRenderDetails ? 'displayed' : 'hidden' }}</span>
+      </p>
+    </div>
+  </div>
+</div>
