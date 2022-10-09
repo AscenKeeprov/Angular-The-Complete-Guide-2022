@@ -1,0 +1,8 @@
+.alert {
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+}
