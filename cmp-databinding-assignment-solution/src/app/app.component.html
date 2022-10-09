@@ -1,0 +1,14 @@
+<div class="container p-0">
+  <app-game-control
+    (durationChange)="onGameDurationChanged($event)"
+    (start)="onGameStarted()">
+  </app-game-control>
+  <div class="row">
+    <div class="col-xs-6 p-0 text-center">
+      <app-odd [numbers]="oddNumbers"></app-odd>
+    </div>
+    <div class="col-xs-6 p-0 text-center">
+      <app-even [numbers]="evenNumbers"></app-even>
+    </div>
+  </div>
+</div>

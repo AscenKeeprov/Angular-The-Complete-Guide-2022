@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row buttons-row text-center">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="startGame()" [disabled]="durationIncrementIntervalId">Start Game</button>
+      <button class="btn btn-danger" (click)="stopGame()" [disabled]="!durationIncrementIntervalId">Stop Game</button>
+    </div>
+  </div>
+</div>
