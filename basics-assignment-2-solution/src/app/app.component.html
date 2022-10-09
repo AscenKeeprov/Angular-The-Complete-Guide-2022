@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <label>
+        <span>Please enter a username:</span>
+        <br />
+        <input [(ngModel)]="username">
+      </label>
+    </div>
+    <div class="col-xs-9">
+      <br />
+      <button (click)="resetUsername()" [disabled]="!username">Reset username</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>The username you entered is: {{ username }}</p>
+    </div>
+  </div>
+</div>
