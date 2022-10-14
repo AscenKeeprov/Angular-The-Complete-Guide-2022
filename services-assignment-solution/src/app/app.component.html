@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row counters-row">
+    <div class="counter">
+      <span class="counter__label">Times users activated:&nbsp;</span>
+      <span class="counter__value counter__value--activated">{{ _usersService.userActivationsCount }}</span>
+    </div>
+    <div class="counter">
+      <span class="counter__label">Times users deactivated:&nbsp;</span>
+      <span class="counter__value counter__value--deactivated">{{ _usersService.userDeactivationsCount }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <app-active-users [users]="_usersService.activeUsers"></app-active-users>
+      <app-inactive-users [users]="_usersService.inactiveUsers"></app-inactive-users>
+    </div>
+  </div>
+</div>

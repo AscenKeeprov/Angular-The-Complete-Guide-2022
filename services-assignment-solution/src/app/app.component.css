@@ -1,0 +1,32 @@
+.container {
+  margin-top: 30px;
+}
+
+.counter {
+  margin: 0.25em;
+}
+
+.counters-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.counter__label,
+.counter__value {
+  font-weight: bold;
+}
+
+.counter__value {
+  padding: 0.25rem 1rem 0.375rem 1rem;
+}
+
+.counter__value--activated {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+
+.counter__value--deactivated {
+  background-color:darkred;
+  color: whitesmoke;
+}
