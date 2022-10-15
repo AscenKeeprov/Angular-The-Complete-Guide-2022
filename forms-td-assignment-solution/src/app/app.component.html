@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form class="col-xs-12 col-sm-8 col-md-6"
+        #tdForm="ngForm"
+        (ngSubmit)="onTdFormSubmit(tdForm)">
+        <div class="form-group" [ngClass]="{ 'has-error': emailInput.touched && emailInput.invalid }">
+          <label for="email"><span class="required-indicator">*</span>E-mail address:</label>
+          <input class="form-control"
+            #emailInput="ngModel"
+            email
+            id="email"
+            name="email"
+            ngModel
+            required
+            type="email">
+          <span class="text-danger" *ngIf="emailInput.touched && emailInput.invalid">Invalid e-mail address</span>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': subscriptionTypeInput.invalid }">
+          <label for="subscriptionType">Subscription Type:</label>
+          <select class="form-control"
+            #subscriptionTypeInput="ngModel"
+            id="subscriptionType"
+            name="subscriptionType"
+            [(ngModel)]="_selectedSubscriptionTypeOption"
+            required>
+            <option *ngFor="let subscriptionTypeOption of _subscriptionTypeSelectOptions">{{ subscriptionTypeOption }}</option>
+          </select>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': passwordInput.touched && passwordInput.invalid }">
+          <label for="password"><span class="required-indicator">*</span>Password:</label>
+          <input class="form-control"
+            #passwordInput="ngModel"
+            id="password"
+            name="password"
+            ngModel
+            required
+            type="password">
+          <span class="text-danger" *ngIf="passwordInput.touched && passwordInput.invalid">Invalid password</span>
+        </div>
+        <div class="row footer-row">
+          <div class="col-xs-3">
+            <button class="btn btn-primary" type="submit" [disabled]="tdForm.invalid">Submit</button>
+          </div>
+          <div class="col-xs-9">
+            <span class="text-danger" *ngIf="tdForm.touched && tdForm.invalid">Some form fields are not valid</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
