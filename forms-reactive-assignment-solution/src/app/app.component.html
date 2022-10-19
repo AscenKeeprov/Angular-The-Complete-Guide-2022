@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form class="col-xs-12 col-sm-8 col-md-6"
+        [formGroup]="projectForm"
+        (ngSubmit)="onFormSubmit(projectForm)">
+        <div class="form-group"
+          [ngClass]="{
+            'has-error': projectForm.get('name').touched && projectForm.get('name').invalid
+          }">
+          <label for="name">Project Name:</label>
+          <input class="form-control"
+            formControlName="name"
+            id="name"
+            type="text">
+          <span class="text-danger"
+            *ngIf="projectForm.get('name').touched && projectForm.get('name').invalid">Invalid project name</span>
+        </div>
+        <div class="form-group"
+          [ngClass]="{
+            'has-error': projectForm.get('email').touched && projectForm.get('email').invalid
+          }">
+          <label for="email">Mail:</label>
+          <input class="form-control"
+            formControlName="email"
+            id="email"
+            type="email">
+          <span class="text-danger"
+            *ngIf="projectForm.get('email').touched && projectForm.get('email').invalid">Invalid e-mail address</span>
+        </div>
+        <div class="form-group"
+          [ngClass]="{
+            'has-error': projectForm.get('status').touched && projectForm.get('status').invalid
+          }">
+          <label for="status">Project Status:</label>
+          <select class="form-control"
+            formControlName="status"
+            id="status">
+            <option [ngValue]="undefined"></option>
+            <option *ngFor="let option of _projectStatusSelectOptions" [ngValue]="option">{{ option }}</option>
+          </select>
+          <span class="text-danger"
+            *ngIf="projectForm.get('status').touched && projectForm.get('status').invalid">Invalid project status</span>
+        </div>
+        <div class="row footer-row">
+          <div class="col-xs-3">
+            <button class="btn btn-primary" type="submit" [disabled]="projectForm.invalid">Submit</button>
+          </div>
+          <div class="col-xs-9">
+            <span class="text-danger" *ngIf="projectForm.touched && projectForm.invalid">Some form fields are not valid</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
